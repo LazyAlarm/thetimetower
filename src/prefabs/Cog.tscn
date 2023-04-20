@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/scripts/Cog.gd" type="Script" id=1]
+[ext_resource path="res://src/textures/BigCog.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=91]
+radius = 49.0
+
+[node name="Cog" type="KinematicBody2D"]
+collision_layer = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -1, 0, -28, 39, -34, 52, -19, 61, -14, 61, -8, 48 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+rotation = -0.793847
+polygon = PoolVector2Array( -1, 0, -28, 39, -34, 52, -19, 61, -14, 61, -8, 48 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="."]
+rotation = -1.58317
+polygon = PoolVector2Array( -1, 0, -28, 39, -34, 52, -19, 61, -14, 61, -8, 48 )
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="."]
+rotation = -2.36298
+polygon = PoolVector2Array( -1, 0, -28, 39, -34, 52, -19, 61, -14, 61, -8, 48 )
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="."]
+rotation = -3.15153
+polygon = PoolVector2Array( -1, 0, -28, 39, -34, 52, -19, 61, -14, 61, -8, 48 )
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="."]
+rotation = -3.93535
+polygon = PoolVector2Array( -1, 0, -28, 39, -34, 52, -19, 61, -14, 61, -8, 48 )
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="."]
+rotation = -4.71763
+polygon = PoolVector2Array( -1, 0, -28, 39, -34, 52, -19, 61, -14, 61, -8, 48 )
+
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="."]
+rotation = -5.49971
+polygon = PoolVector2Array( -1, 0, -28, 39, -34, 52, -19, 61, -14, 61, -8, 48 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 91 )

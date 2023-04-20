@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/StepIn.mp3-4f28de8d61bb9628a84f6fdf18732efd.mp3str"
+
+[deps]
+
+source_file="res://src/sound/StepIn.mp3"
+dest_files=[ "res://.import/StepIn.mp3-4f28de8d61bb9628a84f6fdf18732efd.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

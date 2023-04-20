@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Cogs.mp3-17d1b8b1f3fdbc11dbcb35e796a5020f.mp3str"
+
+[deps]
+
+source_file="res://src/sound/Cogs.mp3"
+dest_files=[ "res://.import/Cogs.mp3-17d1b8b1f3fdbc11dbcb35e796a5020f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

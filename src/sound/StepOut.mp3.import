@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/StepOut.mp3-5d3647130675de158a03c7664b32eb63.mp3str"
+
+[deps]
+
+source_file="res://src/sound/StepOut.mp3"
+dest_files=[ "res://.import/StepOut.mp3-5d3647130675de158a03c7664b32eb63.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

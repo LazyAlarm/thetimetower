@@ -1,0 +1,60 @@
+[gd_resource type="Theme" load_steps=7 format=2]
+
+[ext_resource path="res://src/fonts/Bold.tres" type="DynamicFont" id=1]
+[ext_resource path="res://src/fonts/Regular.tres" type="DynamicFont" id=2]
+
+[sub_resource type="StyleBoxFlat" id=94]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=95]
+bg_color = Color( 0.270588, 0.313726, 0.384314, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=96]
+bg_color = Color( 0.180392, 0.172549, 0.227451, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=93]
+bg_color = Color( 0, 0, 0, 1 )
+
+[resource]
+default_font = ExtResource( 1 )
+Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_focus = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/styles/disabled = SubResource( 94 )
+Button/styles/focus = SubResource( 94 )
+Button/styles/hover = SubResource( 95 )
+Button/styles/normal = SubResource( 94 )
+Button/styles/pressed = SubResource( 96 )
+MenuButton/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+MenuButton/colors/font_color_disabled = Color( 1, 1, 1, 0.3 )
+MenuButton/colors/font_color_focus = Color( 0.941176, 0.941176, 0.941176, 1 )
+MenuButton/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+MenuButton/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+MenuButton/constants/hseparation = 3
+MenuButton/fonts/font = ExtResource( 1 )
+MenuButton/styles/disabled = null
+MenuButton/styles/focus = null
+MenuButton/styles/hover = null
+MenuButton/styles/normal = null
+MenuButton/styles/pressed = null
+Panel/styles/panel = SubResource( 93 )
+RichTextLabel/fonts/bold_font = ExtResource( 1 )
+RichTextLabel/fonts/normal_font = ExtResource( 2 )

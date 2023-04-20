@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Pound.mp3-6e7011d9df1624de9d0cc040fb946b70.mp3str"
+
+[deps]
+
+source_file="res://src/sound/Pound.mp3"
+dest_files=[ "res://.import/Pound.mp3-6e7011d9df1624de9d0cc040fb946b70.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
