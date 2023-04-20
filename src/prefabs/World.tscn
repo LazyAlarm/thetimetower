@@ -2448,7 +2448,10 @@ text = "Total Time
 00:00:00:00"
 align = 1
 
-[node name="Checkpoint" parent="." instance=ExtResource( 13 )]
+[node name="Checkpoint0" parent="." instance=ExtResource( 13 )]
+position = Vector2( -48, 120 )
+
+[node name="Checkpoint1" parent="." instance=ExtResource( 13 )]
 
 [node name="Checkpoint2" parent="." instance=ExtResource( 13 )]
 position = Vector2( 304, 120 )

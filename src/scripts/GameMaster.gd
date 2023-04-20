@@ -1,15 +1,15 @@
 extends Node
 
 
+onready var player = $Player
 onready var music_ending := preload("res://src/sound/Juhani Junkala [Chiptune Adventures] 1. Stage 1.wav")
-
 onready var menu = $CanvasLayer/Menu
 onready var timer = $Timer
 onready var timer_text = $CanvasLayer/UI/TimerText
-onready var outoftime = $CanvasLayer/UI/OutOfTime
-onready var player = $Player
+onready var gameover_text = $CanvasLayer/UI/OutOfTime
 onready var totaltime_text = get_parent().get_node("Ending/Total Time")
-#var spawnpoint : Vector2 = Vector2.ZERO
+
+var hazards : Array
 var spawnpoints : Array
 var index : int = 0
 var waiting : bool = true
@@ -24,10 +24,26 @@ func _ready() -> void:
 	get_tree().paused = true
 	spawnpoints.append(player.global_position)
 	player.connect("respawn",self,"_respawn")
-	player.connect("player_won",self,"_player_won")
 	timer.connect("timeout",self,"_timeout")
+	
+	#Setup Spawnpoints
+	for node in get_parent().get_children():
+		print_debug(node.name)
+		if node is Checkpoint:
+			node.body_to_check = player
+			node.connect("checkpoint_reached",self,"_set_spawn")
+	#Get Obstacles
+	for child in get_parent().get_children():
+		if (child.get_child_count() > 0):
+			for grandchild in child.get_children():
+				if grandchild is Hazard:
+					hazards.append(grandchild)
 
 func _process(delta: float) -> void:
+	if(Input.is_action_pressed("reset")):
+		reset_timer += delta
+		if(reset_timer > 1):
+			get_tree().reload_current_scene()
 	
 	if(quiet_music):
 		$"BG Music".volume_db = clamp($"BG Music".volume_db- (delta*4),-100,100)
@@ -53,22 +69,20 @@ func _timeout():
 		return
 	timer_text.text = "Time: 0"
 	player.player_died()
-	outoftime.show()
+	gameover_text.show()
 
 
 func _respawn():
-	outoftime.hide()
+	gameover_text.hide()
 	timer.stop()
 	waiting = true
 	player.has_moved = false
-	#if(index != 0):
-	#	spawnpoints.remove(index)
-	#index -= 1
 	if(index < 0): index = 0
 	player.global_transform.origin = spawnpoints[index]
 	player.velocity = Vector2.ZERO
+	#_reset_cycles()
 
-func _player_won(spawnpoint):
+func _set_spawn(spawnpoint):
 	timer.stop()
 	waiting = true
 	player.has_moved = false
@@ -77,22 +91,24 @@ func _player_won(spawnpoint):
 			return
 	spawnpoints.append(spawnpoint)
 	index += 1
+	#_reset_cycles()
+	
+#TODO: Get list on ready then only loop through that list
+func _reset_cycles():
+	for hazard in hazards:
+		hazard.reset()
 	
 
+var reset_timer : float
 
 func _on_Play_button_down() -> void:
 	get_tree().paused = false
 	menu.hide()
 	$"BG Music".play()
 	
-
-
 func _on_Final_Checkpoint(body: Node) -> void:
 	won = true
 	timer_text.text = "Time: Infinite"
-
-
-
 
 func _on_Shhhh_body_entered(body: Node) -> void:
 	if(body.collision_layer == 9): #Player
@@ -102,6 +118,10 @@ func _input(event: InputEvent) -> void:
 	if(Input.is_action_pressed("start")):
 		if(menu.visible):
 			_on_Play_button_down()
+
+	if(Input.is_action_just_released("reset")):
+		reset_timer = 0
+		_respawn()
 
 func _on_Win_body_entered(body: Node) -> void:
 	if(body.collision_layer == 9): #Player

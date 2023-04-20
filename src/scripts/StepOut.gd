@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends Hazard
 
 onready var animator :=  $AnimationPlayer
 export var speed : float = 1
@@ -14,6 +14,10 @@ func _ready() -> void:
 
 func _on_StartTimer_timeout() -> void:
 	animator.play("anim_StepOut",-1,speed)
+	
+func reset():
+	animator.play("RESET")
+	$StartTimer.start(start_time)
 
 func _randomize_sound():
 	var randomfloat : float = rand_range(0.9,1.1)

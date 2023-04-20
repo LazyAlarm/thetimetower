@@ -144,7 +144,7 @@ func _process(delta: float) -> void:
 
 
 signal respawn
-signal player_won(spawnpoint)
+
 
 func player_died():
 	animator.play("anim_Die",-1,1)
@@ -160,5 +160,4 @@ func _respawn():
 func _on_hitbox_collision(area: Area2D) -> void:
 	if(area.collision_layer == 4): #Enemy
 		emit_signal("player_died")
-	if(area.collision_layer == 16): #Goal
-		emit_signal("player_won",area.global_position)
+
